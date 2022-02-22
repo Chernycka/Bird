@@ -10,10 +10,7 @@ public class Pipespawner : MonoBehaviour
     [SerializeField] float borderbottom =-0.2f;
     [SerializeField] GameObject pipes;
     // Start is called before the first frame update
-    void Start()
-    {
-      
-    }
+ 
     public void StartSpawning()
     {
         StartCoroutine(spawnpipes());
@@ -30,9 +27,5 @@ public class Pipespawner : MonoBehaviour
         }
     }
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
+
 }

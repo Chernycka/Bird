@@ -6,7 +6,7 @@ public class BirdFly : MonoBehaviour
 {
 
     [SerializeField] float velocity = 1;
-    [SerializeField] GameObject Manager;
+    [SerializeField] Manager manager;
     Rigidbody2D rigidbody2D;
     bool alreadyTouched = false;
 
@@ -26,6 +26,8 @@ public class BirdFly : MonoBehaviour
             rigidbody2D.isKinematic = false;
             alreadyTouched = true;
             FindObjectOfType<Pipespawner>().StartSpawning();
+            manager.ShowScore();
+            manager.DisableStartUI();
         }
 
         if (Input.GetMouseButtonDown(0)) {
@@ -35,6 +37,6 @@ public class BirdFly : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Time.timeScale = 0;
+        manager.GameOver();
     }
 }
